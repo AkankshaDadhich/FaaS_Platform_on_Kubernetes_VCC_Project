@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-quotes-5023
+spec:
+  replicas: 1  # Example: Deploying 3 replicas
+  selector:
+    matchLabels:
+      app: random-quotes-5023
+  template:
+    metadata:
+      labels:
+        app: random-quotes-5023
+    spec:
+      containers:
+      - name: random-quotes-5023
+        image: prerna14/final-random-quote1
+        ports:
+        - containerPort: 5023  # Default port for Flask application
+        env:
+        - name: PORT
+          value: "5023"  # Each container gets a unique port number
+      # - name: random-quote2
+      #   image: prerna14/final-random-quote1
+      #   ports:
+      #   - containerPort: 5002  # Default port for Flask application
+      #   env:
+      #   - name: PORT
+      #     value: "5002"  # Each container gets a unique port number
+      # - name: random-quote3
+      #   image: prerna14/final-random-quote1
+      #   ports:
+      #   - containerPort: 5003  # Default port for Flask application
+      #   env:
+      #   - name: PORT
+      #     value: "5003"  # Each container gets a unique port number
+
+#        1144  kubectl expose deployment random-quote-2 --port=5001 --target-port=5001 --name=random-quote1-service
+#  1145  kubectl expose deployment random-quote-2 --port=5002 --target-port=5002 --name=random-quote2-service
+#  1146  kubectl expose deployment random-quote-2 --port=5003 --target-port=5003 --name=random-quote3-service
+#  1147  kubectl get services
+#  1148  kubectl port-forward service/random-quote1-service 5001:5001
+#  1149  kubectl port-forward service/random-quote1-service 5001:5001-v  
+#  1150  kubectl port-forward service/random-quote1-service 5002:5002
+#  1151  kubectl port-forward service/random-quote2-service 5002:5002
+#  1152  kubectl port-forward service/random-quote3-service 5003:5003
+
+
+
+
+#kubectl expose deployment random-quotes-5023
+ #1264  kubectl expose deployment random-quotes-5023
+#  kubectl port-forward service/random-quote2-service 5002:5002
+

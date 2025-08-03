@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Quote Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa; /* Light gray */
+        }
+        .container {
+            text-align: center;
+            color: #343a40; /* Dark gray */
+        }
+        .quote {
+            color: #495057; /* Slightly darker gray */
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .author {
+            color: #6c757d; /* Medium gray */
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff; /* Blue */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            outline: none;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
+        button i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="quoteContainer">
+            <!-- Quote will be inserted here -->
+        </div>
+        <button id="quoteBtn"><i class="fas fa-heart"></i> Get Another Quote</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to generate and display a random quote
+            function generateQuote() {
+                // Array of quotes
+                var quotes = [
+                    "The only way to do great work is to love what you do. – Steve Jobs",
+                    "Innovation distinguishes between a leader and a follower. – Steve Jobs",
+                    "Your time is limited, don’t waste it living someone else’s life. – Steve Jobs",
+                    "Stay hungry, stay foolish. – Steve Jobs",
+                    "Don’t let the noise of other’s opinions drown out your own inner voice. – Steve Jobs",
+                    "The journey of a thousand miles begins with one step. – Lao Tzu",
+                    "The only impossible journey is the one you never begin. – Tony Robbins",
+                    "Believe you can and you’re halfway there. – Theodore Roosevelt",
+                    "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
+                    "Success is not final, failure is not fatal: It is the courage to continue that counts. – Winston Churchill"
+                ];
+
+                // Select a random quote from the array
+                var randomIndex = Math.floor(Math.random() * quotes.length);
+                var randomQuote = quotes[randomIndex];
+
+                // Display the random quote
+                document.getElementById('quoteContainer').innerHTML = "<p class='quote'>" + randomQuote + "</p>";
+
+                // Scroll to the top of the page
+                window.scrollTo(0, 0);
+            }
+
+            // Generate a quote when the page loads
+            generateQuote();
+
+            // Generate a new quote when the button is clicked
+            document.getElementById('quoteBtn').addEventListener('click', generateQuote);
+        });
+    </script>
+</body>
+</html>
